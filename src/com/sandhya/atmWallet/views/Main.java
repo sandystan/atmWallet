@@ -17,6 +17,8 @@ import javax.swing.JButton;
 import java.awt.Component;
 import javax.swing.Box;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Main {
 
@@ -97,17 +99,35 @@ public class Main {
 		frmPocketAtmWallet.getContentPane().add(lblNewJgoodiesLabel, gbc_lblNewJgoodiesLabel);
 		
 		JButton btnSignUp = new JButton("Sign Up");
+		
 		btnSignUp.setHorizontalAlignment(SwingConstants.TRAILING);
 		btnSignUp.setForeground(new Color(204, 204, 0));
 		btnSignUp.setBackground(new Color(255, 204, 0));
 		btnSignUp.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		GridBagConstraints gbc_btnSignUp = new GridBagConstraints();
+		gbc_btnSignUp.anchor = GridBagConstraints.WEST;
 		gbc_btnSignUp.insets = new Insets(0, 0, 5, 5);
 		gbc_btnSignUp.gridx = 2;
 		gbc_btnSignUp.gridy = 12;
 		frmPocketAtmWallet.getContentPane().add(btnSignUp, gbc_btnSignUp);
 		
 		JButton btnSignIn = new JButton("Sign In");
+		btnSignUp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SignUp signUp = SignUp.getInstance();
+				btnSignUp.setEnabled(false);
+				btnSignIn.setEnabled(false);
+				signUp.setVisible(true);
+			}
+		});
+		btnSignIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SignIn signIn = SignIn.getInstance();
+				btnSignUp.setEnabled(false);
+				btnSignIn.setEnabled(false);
+				signIn.setVisible(true);
+			}
+		});
 		btnSignIn.setForeground(new Color(0, 102, 0));
 		btnSignIn.setBackground(new Color(51, 204, 51));
 		btnSignIn.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
