@@ -13,18 +13,18 @@ public class ATM implements Serializable,IATM {
 	/**
 	 * Primary Key
 	 */
-	private long atmNumber;
+	private String atmNumber;
 	private int pin;
 	/**
 	 * Reference key to User
 	 */
 	private int userId;
 
-	public long getAtmNumber() {
-		return atmNumber;
+	public String getAtmNumber() {
+		return this.atmNumber;
 	}
 
-	public void setAtmNumber(long atmNumber) {
+	public void setAtmNumber(String atmNumber) {
 		this.atmNumber = atmNumber;
 	}
 

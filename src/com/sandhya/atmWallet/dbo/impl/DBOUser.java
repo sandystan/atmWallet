@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import com.sandhya.atmWallet.dbo.decl.IDBOUser;
 import com.sandhya.atmWallet.models.decl.IUser;
+import com.sandhya.atmWallet.models.impl.User;
 
 public class DBOUser implements IDBOUser {
 	private Connection con = null;
@@ -20,9 +21,9 @@ public class DBOUser implements IDBOUser {
 	public IUser getUser(int userId) {
 		PreparedStatement pStmt = null;
 		ResultSet rs = null;
-		IUser user = new com.sandhya.atmWallet.models.impl.User();
+		IUser user = new User();
 		try {
-			pStmt = con.prepareStatement("select * from ? where userid = ?");
+			pStmt = con.prepareStatement("select * from ? where user_id = ?");
 			pStmt.setString(1,IUser.ENTITY);
 			pStmt.setInt(2, userId);
 			rs = pStmt.executeQuery();
@@ -83,7 +84,7 @@ public class DBOUser implements IDBOUser {
 	public int getUserId(String userName) {
 		PreparedStatement pStmt = null;
 		ResultSet rs = null;
-		IUser user = new com.sandhya.atmWallet.models.impl.User();
+		IUser user = new User();
 		try {
 			pStmt = con.prepareStatement("select user_id from ? where username = ?");
 			pStmt.setString(1, IUser.ENTITY);
@@ -109,7 +110,7 @@ public class DBOUser implements IDBOUser {
 
 	@Override
 	public boolean closeConnection() {
-		if(con!=null) {
+		if (con != null) {
 			try {
 				con.close();
 			} catch (SQLException e) {

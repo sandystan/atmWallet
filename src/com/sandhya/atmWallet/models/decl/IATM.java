@@ -2,9 +2,9 @@ package com.sandhya.atmWallet.models.decl;
 
 public interface IATM {
 	public static final String ENTITY = "atm";
-	public long getAtmNumber();
+	public String getAtmNumber();
 
-	public void setAtmNumber(long atmNumber);
+	public void setAtmNumber(String atmNumber);
 
 	public int getPin();
 
