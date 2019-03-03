@@ -2,7 +2,9 @@ package com.sandhya.atmWallet.models.impl;
 
 import java.io.Serializable;
 
-public class ATM implements Serializable, com.sandhya.atmWallet.models.decl.ATM {
+import com.sandhya.atmWallet.models.decl.IATM;
+
+public class ATM implements Serializable,IATM {
 
 	/**
 	 * 

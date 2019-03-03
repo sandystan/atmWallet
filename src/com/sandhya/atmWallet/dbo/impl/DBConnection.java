@@ -8,7 +8,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DBConnection implements com.sandhya.atmWallet.dbo.decl.DBConnection {
+import com.sandhya.atmWallet.dbo.decl.IDBConnection;
+
+public class DBConnection implements IDBConnection {
 	private static final Properties PROPERTIES = new Properties();
 	public DBConnection() {
 		

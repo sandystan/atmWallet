@@ -1,6 +1,7 @@
 package com.sandhya.atmWallet.models.decl;
 
-public interface ATM {
+public interface IATM {
+	public static final String ENTITY = "atm";
 	public long getAtmNumber();
 
 	public void setAtmNumber(long atmNumber);

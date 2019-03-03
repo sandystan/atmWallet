@@ -1,6 +1,7 @@
 package com.sandhya.atmWallet.models.decl;
 
-public interface User {
+public interface IUser {
+	public static final String ENTITY = "user";
 	public int getUserId();
 
 	public void setUserId(int userId);

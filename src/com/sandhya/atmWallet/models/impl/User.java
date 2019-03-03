@@ -2,13 +2,15 @@ package com.sandhya.atmWallet.models.impl;
 
 import java.io.Serializable;
 
+import com.sandhya.atmWallet.models.decl.IUser;
+
 
 /**
  * 
  * @author Sandy
  *
  */
-public class User implements com.sandhya.atmWallet.models.decl.User,Serializable {
+public class User implements IUser,Serializable {
 
 	private static final long serialVersionUID = 1L;
 
