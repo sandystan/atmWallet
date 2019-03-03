@@ -14,6 +14,9 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Window.Type;
 import javax.swing.JButton;
+import java.awt.Component;
+import javax.swing.Box;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class Main {
 
@@ -50,13 +53,13 @@ public class Main {
 		frmPocketAtmWallet.setForeground(new Color(153, 51, 0));
 		frmPocketAtmWallet.setTitle("Pocket ATM Wallet");
 		frmPocketAtmWallet.getContentPane().setBackground(new Color(255, 204, 204));
-		frmPocketAtmWallet.setBounds(100, 100, 450, 300);
+		frmPocketAtmWallet.setBounds(100, 100, 450, 148);
 		frmPocketAtmWallet.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		frmPocketAtmWallet.getContentPane().setLayout(gridBagLayout);
 		
 		JLabel lblNewLabel = new JLabel("Pocket ATM Wallet");
@@ -77,14 +80,31 @@ public class Main {
 		gbc_lblWeTrustIn.gridy = 3;
 		frmPocketAtmWallet.getContentPane().add(lblWeTrustIn, gbc_lblWeTrustIn);
 		
+		Component verticalGlue = Box.createVerticalGlue();
+		GridBagConstraints gbc_verticalGlue = new GridBagConstraints();
+		gbc_verticalGlue.insets = new Insets(0, 0, 5, 5);
+		gbc_verticalGlue.gridx = 2;
+		gbc_verticalGlue.gridy = 4;
+		frmPocketAtmWallet.getContentPane().add(verticalGlue, gbc_verticalGlue);
+		
+		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Welcome .. !");
+		lblNewJgoodiesLabel.setForeground(new Color(255, 51, 102));
+		GridBagConstraints gbc_lblNewJgoodiesLabel = new GridBagConstraints();
+		gbc_lblNewJgoodiesLabel.gridheight = 2;
+		gbc_lblNewJgoodiesLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewJgoodiesLabel.gridx = 3;
+		gbc_lblNewJgoodiesLabel.gridy = 7;
+		frmPocketAtmWallet.getContentPane().add(lblNewJgoodiesLabel, gbc_lblNewJgoodiesLabel);
+		
 		JButton btnSignUp = new JButton("Sign Up");
+		btnSignUp.setHorizontalAlignment(SwingConstants.TRAILING);
 		btnSignUp.setForeground(new Color(204, 204, 0));
 		btnSignUp.setBackground(new Color(255, 204, 0));
 		btnSignUp.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		GridBagConstraints gbc_btnSignUp = new GridBagConstraints();
-		gbc_btnSignUp.insets = new Insets(0, 0, 0, 5);
+		gbc_btnSignUp.insets = new Insets(0, 0, 5, 5);
 		gbc_btnSignUp.gridx = 2;
-		gbc_btnSignUp.gridy = 8;
+		gbc_btnSignUp.gridy = 12;
 		frmPocketAtmWallet.getContentPane().add(btnSignUp, gbc_btnSignUp);
 		
 		JButton btnSignIn = new JButton("Sign In");
@@ -92,9 +112,10 @@ public class Main {
 		btnSignIn.setBackground(new Color(51, 204, 51));
 		btnSignIn.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		GridBagConstraints gbc_btnSignIn = new GridBagConstraints();
-		gbc_btnSignIn.insets = new Insets(0, 0, 0, 5);
+		gbc_btnSignIn.anchor = GridBagConstraints.SOUTH;
+		gbc_btnSignIn.insets = new Insets(0, 0, 5, 5);
 		gbc_btnSignIn.gridx = 4;
-		gbc_btnSignIn.gridy = 8;
+		gbc_btnSignIn.gridy = 12;
 		frmPocketAtmWallet.getContentPane().add(btnSignIn, gbc_btnSignIn);
 	}
 
