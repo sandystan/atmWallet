@@ -1,60 +1,101 @@
 package com.sandhya.atmWallet.views;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.EventQueue;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.Window.Type;
+import javax.swing.JButton;
 
-import com.sandhya.atmWallet.views.oldClasses.User;
+public class Main {
 
-public class Main extends JFrame implements ActionListener {
+	private JFrame frmPocketAtmWallet;
+
 	/**
-	* 
-	*/
-	private static final long serialVersionUID = 1L;
-	private static Main main;
-	JLabel appName, welcomeMsg, developedBy;
-	JButton btnSignUp;
-	JPanel mainPannel;
-
-	public Main() {
-		appName = new JLabel("POCKECT ATM WALLET");
-		welcomeMsg = new JLabel("We trust in the way you trust us");
-		btnSignUp = new JButton("Sign_Up");
-		mainPannel = new JPanel();
-
-		mainPannel.add(appName);
-		mainPannel.add(welcomeMsg);
-		mainPannel.add(btnSignUp);
-		
-		btnSignUp.addActionListener(this);
-		mainPannel.setBackground(new Color(34, 49, 63));
-		appName.setForeground(new Color(228, 251, 254));
-		welcomeMsg.setForeground(new Color(228, 251, 254));
-		//developedBy.setForeground(new Color(228, 251, 254));
-		btnSignUp.setBackground(new Color(228, 251, 254));
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		getContentPane().add(mainPannel);
-	}
-
+	 * Launch the application.
+	 */
 	public static void main(String[] args) {
-		main = new Main();
-		main.setVisible(true);
-		main.setSize(500, 500);
-		main.setBackground(new Color(34, 49, 63));
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Main window = new Main();
+					window.frmPocketAtmWallet.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		User ur = new User();
-		/*
-		 * ur.sign_up(t1.getText(),Integer.parseInt(t2.getText())); m.setVisible(false);
-		 * Login lg = new Login(ur,this); lg.setVisible(true); lg.setSize(500,500);
-		 */
+	/**
+	 * Create the application.
+	 */
+	public Main() {
+		initialize();
 	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmPocketAtmWallet = new JFrame();
+		frmPocketAtmWallet.setForeground(new Color(153, 51, 0));
+		frmPocketAtmWallet.setTitle("Pocket ATM Wallet");
+		frmPocketAtmWallet.getContentPane().setBackground(new Color(255, 204, 204));
+		frmPocketAtmWallet.setBounds(100, 100, 450, 300);
+		frmPocketAtmWallet.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		frmPocketAtmWallet.getContentPane().setLayout(gridBagLayout);
+		
+		JLabel lblNewLabel = new JLabel("Pocket ATM Wallet");
+		lblNewLabel.setForeground(new Color(255, 102, 102));
+		lblNewLabel.setFont(new Font("Labor Union", Font.PLAIN, 26));
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel.gridx = 3;
+		gbc_lblNewLabel.gridy = 1;
+		frmPocketAtmWallet.getContentPane().add(lblNewLabel, gbc_lblNewLabel);
+		
+		JLabel lblWeTrustIn = new JLabel("We trust in the way you trust us");
+		lblWeTrustIn.setForeground(new Color(255, 102, 102));
+		lblWeTrustIn.setFont(new Font("Apple Chancery", Font.PLAIN, 13));
+		GridBagConstraints gbc_lblWeTrustIn = new GridBagConstraints();
+		gbc_lblWeTrustIn.insets = new Insets(0, 0, 5, 5);
+		gbc_lblWeTrustIn.gridx = 3;
+		gbc_lblWeTrustIn.gridy = 3;
+		frmPocketAtmWallet.getContentPane().add(lblWeTrustIn, gbc_lblWeTrustIn);
+		
+		JButton btnSignUp = new JButton("Sign Up");
+		btnSignUp.setForeground(new Color(204, 204, 0));
+		btnSignUp.setBackground(new Color(255, 204, 0));
+		btnSignUp.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		GridBagConstraints gbc_btnSignUp = new GridBagConstraints();
+		gbc_btnSignUp.insets = new Insets(0, 0, 0, 5);
+		gbc_btnSignUp.gridx = 2;
+		gbc_btnSignUp.gridy = 8;
+		frmPocketAtmWallet.getContentPane().add(btnSignUp, gbc_btnSignUp);
+		
+		JButton btnSignIn = new JButton("Sign In");
+		btnSignIn.setForeground(new Color(0, 102, 0));
+		btnSignIn.setBackground(new Color(51, 204, 51));
+		btnSignIn.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		GridBagConstraints gbc_btnSignIn = new GridBagConstraints();
+		gbc_btnSignIn.insets = new Insets(0, 0, 0, 5);
+		gbc_btnSignIn.gridx = 4;
+		gbc_btnSignIn.gridy = 8;
+		frmPocketAtmWallet.getContentPane().add(btnSignIn, gbc_btnSignIn);
+	}
+
 }

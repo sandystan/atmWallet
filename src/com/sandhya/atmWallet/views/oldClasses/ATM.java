@@ -1,4 +1,4 @@
-package com.sandhya.atmWallet.views;
+package com.sandhya.atmWallet.views.oldClasses;
 
 public class ATM {
     String user_name;
