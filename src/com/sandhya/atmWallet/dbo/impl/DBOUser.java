@@ -23,18 +23,18 @@ public class DBOUser implements IDBOUser {
 		ResultSet rs = null;
 		IUser user = new User();
 		try {
-			pStmt = con.prepareStatement("select * from ? where user_id = ?");
-			pStmt.setString(1,IUser.ENTITY);
-			pStmt.setInt(2, userId);
+			pStmt = con.prepareStatement("select * from user where user_id = ?");
+			//pStmt.setString(1,IUser.ENTITY);
+			pStmt.setInt(1, userId);
 			rs = pStmt.executeQuery();
 			while (rs.next()) {
-				user.setUserId(rs.getInt("user_id"));
+				user.setUserId(rs.getInt("userid"));
 				user.setCity(rs.getString("city"));
 				user.setUsername(rs.getString("username"));
 				user.setEmail(rs.getString("email"));
-				user.setFirstName(rs.getString("first_name"));
-				user.setLastName(rs.getString("last_name"));
-				user.setMobileNumber(rs.getString("moblile_number"));
+				user.setFirstName(rs.getString("firstname"));
+				user.setLastName(rs.getString("lastname"));
+				user.setMobileNumber(rs.getString("mobilenumber"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -56,15 +56,16 @@ public class DBOUser implements IDBOUser {
 		PreparedStatement pStmt = null;
 		int rs = 0;
 		try {
-			pStmt = con.prepareStatement("insert into ? (username,first_name,last_name,email,mobile_number,city) values(?,?,?,?,?,?)");
-			pStmt.setString(1, IUser.ENTITY);
-			pStmt.setString(2, user.getUsername());
-			pStmt.setString(3, user.getFirstName());
-			pStmt.setString(4, user.getLastName());
-			pStmt.setString(5, user.getEmail());
-			pStmt.setString(6, user.getMobileNumber());
-			pStmt.setString(7, user.getCity());
+			pStmt = con.prepareStatement("insert into user (username,firstname,lastname,email,mobilenumber,city) values(?,?,?,?,?,?);");
+			//pStmt.setString(1, IUser.ENTITY);
+			pStmt.setString(1, user.getUsername());
+			pStmt.setString(2, user.getFirstName());
+			pStmt.setString(3, user.getLastName());
+			pStmt.setString(4, user.getEmail());
+			pStmt.setString(5, user.getMobileNumber());
+			pStmt.setString(6, user.getCity());
 			rs = pStmt.executeUpdate();
+			
 			if(rs>0) return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -86,12 +87,12 @@ public class DBOUser implements IDBOUser {
 		ResultSet rs = null;
 		IUser user = new User();
 		try {
-			pStmt = con.prepareStatement("select user_id from ? where username = ?");
-			pStmt.setString(1, IUser.ENTITY);
-			pStmt.setString(2, userName);
+			pStmt = con.prepareStatement("select userid from user where username = ?");
+			//pStmt.setString(1, IUser.ENTITY);
+			pStmt.setString(1, userName);
 			rs = pStmt.executeQuery();
 			while (rs.next()) {
-				user.setUserId(rs.getInt("user_id"));
+				user.setUserId(rs.getInt("userid"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -120,5 +121,7 @@ public class DBOUser implements IDBOUser {
 		}
 		return false;
 	}
+
+
 
 }

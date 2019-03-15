@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JCheckBox;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class SignIN extends JFrame {
 
@@ -23,6 +26,15 @@ public class SignIN extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		JCheckBox chckbxMale = new JCheckBox("Male");
+		chckbxMale.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("Sacndhya is lady");
+			}
+		});
+		contentPane.add(chckbxMale, BorderLayout.WEST);
 	}
 	public static SignIN getInstance() {
 		if(SIGN_IN == null) SIGN_IN = new SignIN();

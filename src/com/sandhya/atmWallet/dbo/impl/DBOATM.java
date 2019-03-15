@@ -23,15 +23,15 @@ public class DBOATM implements IDBOATM {
 		ResultSet rs = null;
 		IATM atm = new ATM();
 		try {
-			pStmt = con.prepareStatement("select * from ? where user_id = ? and pin = ?");
-			pStmt.setString(1,IATM.ENTITY);
-			pStmt.setInt(2, userId);
-			pStmt.setInt(3, pin);
+			pStmt = con.prepareStatement("select * from atm where userid = ? and pinnum");
+			//pStmt.setString(1,IATM.ENTITY);
+			pStmt.setInt(1, userId);
+			pStmt.setInt(2, pin);
 			rs = pStmt.executeQuery();
 			while (rs.next()) {
-				atm.setUserId(rs.getInt("user_id"));
-				atm.setPin(rs.getInt("pin"));
-				atm.setAtmNumber(rs.getString("atm_number"));
+				atm.setUserId(rs.getInt("userid"));
+				atm.setPin(rs.getInt("pinnum"));
+				atm.setAtmNumber(rs.getString("atmnum"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -53,10 +53,11 @@ public class DBOATM implements IDBOATM {
 		PreparedStatement pStmt = null;
 		int rs = 0;
 		try {
-			pStmt = con.prepareStatement("insert into ? (atm_number,pin) values(?,?)");
-			pStmt.setString(1, IATM.ENTITY);
-			pStmt.setString(2, atm.getAtmNumber());
-			pStmt.setInt(3, atm.getPin());
+			pStmt = con.prepareStatement("insert into atm (atmnum,pinnum,userid) values(?,?,?)");
+			//pStmt.setString(1, IATM.ENTITY);
+			pStmt.setString(1, atm.getAtmNumber());
+			pStmt.setInt(2, atm.getPin());
+			pStmt.setInt(3, atm.getUserId());
 			rs = pStmt.executeUpdate();
 			if(rs>0) return true;
 		} catch (SQLException e) {
