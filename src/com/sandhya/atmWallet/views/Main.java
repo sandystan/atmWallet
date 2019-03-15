@@ -110,6 +110,8 @@ public class Main {
 				btnSignUp.setEnabled(false);
 				btnSignIn.setEnabled(false);
 				signUp.setVisible(true);
+				btnSignUp.setEnabled(true);
+				btnSignIn.setEnabled(true);
 			}
 		});
 		btnSignIn.addActionListener(new ActionListener() {
@@ -118,6 +120,8 @@ public class Main {
 				btnSignUp.setEnabled(false);
 				btnSignIn.setEnabled(false);
 				signIn.setVisible(true);
+				btnSignUp.setEnabled(true);
+				btnSignIn.setEnabled(true);
 			}
 		});
 		btnSignIn.setForeground(new Color(0, 102, 0));

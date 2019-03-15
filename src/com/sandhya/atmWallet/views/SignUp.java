@@ -23,6 +23,8 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SignUp extends JFrame {
 
@@ -154,6 +156,12 @@ public class SignUp extends JFrame {
 		contentPane.add(lblPinNumber);
 		
 		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e)  {
+				SIGN_UP.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		        SIGN_UP.setVisible(false);
+			}
+		});
 		btnCancel.setBounds(327, 343, 117, 29);
 		contentPane.add(btnCancel);
 		
